@@ -5,6 +5,7 @@ import gr.codehub.jpademo.dto.ResultApi;
 import gr.codehub.jpademo.exception.ProductNotFoundException;
 import gr.codehub.jpademo.model.Product;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface ShopService {
@@ -13,7 +14,10 @@ public interface ShopService {
 
     ProductDto createProduct(ProductDto product);
     ProductDto findProduct(int productId) throws ProductNotFoundException;
-    List<ProductDto> findProducts();
+    List<ProductDto> findProducts(Integer pageCount, Integer pageSize);
     ProductDto updateProduct(int productId, ProductDto product);
     boolean deleteProduct(int productId);
+
+    List<Double> findPrices();
+    List<ProductDto> findProductByNameAndByPrice(BigDecimal maximumPrice, String productName);
 }

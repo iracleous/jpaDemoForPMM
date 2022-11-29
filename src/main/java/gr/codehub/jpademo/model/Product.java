@@ -14,6 +14,7 @@ import java.util.List;
 @Entity
 @EqualsAndHashCode
 @NoArgsConstructor
+
 public class Product extends BaseEntity{
 
     private String name;

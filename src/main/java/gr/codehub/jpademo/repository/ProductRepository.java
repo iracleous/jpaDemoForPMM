@@ -1,6 +1,7 @@
 package gr.codehub.jpademo.repository;
 
 import gr.codehub.jpademo.model.Product;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,13 +15,13 @@ import java.util.Optional;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     Optional<Product> findFirstByName(String name);
-
+    List<Product> findAllByName(Pageable page, String name);
 
     @Query("select distinct p.price from Product p")
-    List<Integer> findPrices();
+    List<Double> findPrices();
 
-    @Query("SELECT p FROM Product p WHERE p.price <= :price and p.name = :name")
-    Product findProductByNameAndByPrice(@Param("price") BigDecimal productPriceUpperLimit,
+    @Query("FROM Product p WHERE p.price <= :price and p.name = :name")
+    List<Product> findProductByNameAndByPrice(@Param("price") BigDecimal productPriceUpperLimit,
                                          @Param("name") String productName);
 
 
