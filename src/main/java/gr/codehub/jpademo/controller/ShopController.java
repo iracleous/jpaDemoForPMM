@@ -2,6 +2,7 @@ package gr.codehub.jpademo.controller;
 
 
 import gr.codehub.jpademo.dto.ProductDto;
+import gr.codehub.jpademo.dto.ResultApi;
 import gr.codehub.jpademo.exception.CustomerNotFoundException;
 import gr.codehub.jpademo.exception.ProductNotFoundException;
 import gr.codehub.jpademo.service.ShopService;
@@ -17,16 +18,21 @@ import java.util.List;
 public class ShopController {
     private ShopService shopService;
 
+    @GetMapping("productAsResult/{id}")
+    public ResultApi<ProductDto> getCustomerAsResult(@PathVariable int id)    {
+        return   shopService.findProductAsResult(id);
+    }
+
     @GetMapping("product/{id}")
-    public ProductDto getCustomer(@PathVariable int id)   throws ProductNotFoundException {
+    public ProductDto getCustomer(@PathVariable int id)  throws ProductNotFoundException {
         return shopService.findProduct(id);
     }
     @GetMapping("product")
-    public List<ProductDto> getCustomers()   throws ProductNotFoundException {
+    public List<ProductDto> getCustomers()  {
         return shopService.findProducts();
     }
     @PostMapping("product")
-    public ProductDto createCustomer(@RequestBody ProductDto productDto)   throws ProductNotFoundException {
+    public ProductDto createCustomer(@RequestBody ProductDto productDto)   {
         return shopService.createProduct(productDto) ;
     }
 }

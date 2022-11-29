@@ -2,6 +2,7 @@ package gr.codehub.jpademo.controller;
 
 
 import gr.codehub.jpademo.exception.CustomerCreationException;
+import gr.codehub.jpademo.exception.ProductNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -26,6 +27,14 @@ public class CrmErrorController {
     public void handleBadRequest(CustomerCreationException ex) {
         log.error("Invalid account supplied in request");
     }
+
+
+    @ResponseStatus(HttpStatus.NOT_FOUND) // 404
+    @ExceptionHandler(ProductNotFoundException.class)
+    public void handleProductNotFoundRequest(ProductNotFoundException ex) {
+        log.error("Product not found in request");
+    }
+
 
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR) // 500
