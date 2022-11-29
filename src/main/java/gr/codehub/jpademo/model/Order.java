@@ -8,17 +8,14 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @AllArgsConstructor
-@Builder
+
 @Data
 @Entity
 @EqualsAndHashCode
 @NoArgsConstructor
 
-public class Order {
+public class Order extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     private LocalDateTime date;
 
     @OneToMany(mappedBy = "order")

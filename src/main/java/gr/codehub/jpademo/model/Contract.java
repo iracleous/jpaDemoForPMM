@@ -8,16 +8,13 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 @AllArgsConstructor
-@Builder
+
 @Data
 @Entity
 @EqualsAndHashCode
 @NoArgsConstructor
-public class Contract {
+public class Contract extends BaseEntity{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
     private LocalDateTime signDate;
     @ManyToOne
     private Customer customer;

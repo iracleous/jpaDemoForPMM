@@ -9,15 +9,13 @@ import java.time.LocalDate;
 import java.util.List;
 
 @AllArgsConstructor
-@Builder
+
 @Data
 @Entity
 @EqualsAndHashCode
 @NoArgsConstructor
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Product extends BaseEntity{
+
     private String name;
     private BigDecimal price;
     private LocalDate fistLaunchDate;

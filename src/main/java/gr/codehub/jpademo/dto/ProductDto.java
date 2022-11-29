@@ -29,7 +29,13 @@ public class ProductDto {
     }
 
     public Product asProduct(){
-        return Product.builder().id(id).name(name).price(price).productCategory(productCategory).fistLaunchDate(fistLaunchDate).build();
-    }
+        Product product = new Product();
+        product.setId(id);
+        product.setName(name);
+        product.setPrice(price);
+        product.setProductCategory(productCategory);
+        product.setFistLaunchDate(fistLaunchDate);
+        return product;
+      }
 
 }

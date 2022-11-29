@@ -3,20 +3,17 @@ package gr.codehub.jpademo.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @AllArgsConstructor
-@Builder
+
 @Data
 @Entity
 @EqualsAndHashCode
 @NoArgsConstructor
-public class Supplier {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class Supplier extends Person{
 
-    private String name;
 
     @OneToMany (mappedBy = "supplier")
     private List<Product> products;

@@ -8,22 +8,13 @@ import java.util.List;
 
 
 @AllArgsConstructor
-@Builder
+
 @Data
 @Entity
 @EqualsAndHashCode
 @NoArgsConstructor
-public class Customer {
+public class Customer extends Person {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    private String name;
-    @Column(unique = true)
-    private String address;
-    private int age;
-    private LocalDateTime registrationDate;
 
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;

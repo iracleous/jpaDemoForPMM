@@ -7,15 +7,13 @@ import lombok.*;
 import java.math.BigDecimal;
 
 @AllArgsConstructor
-@Builder
+
 @Data
 @Entity
 @EqualsAndHashCode
 @NoArgsConstructor
-public class OrderDetail {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+public class OrderDetail extends BaseEntity {
+
     private int quantity;
     private BigDecimal finalPrice;
 
