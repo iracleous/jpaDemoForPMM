@@ -19,6 +19,9 @@ public class Customer extends Person {
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
+    @OneToMany(mappedBy = "secondCustomer")
+    private List<Order> ordersAsSecond;
+
     @OneToMany(mappedBy = "customer")
     private List<Contract> contracts;
 

@@ -1,6 +1,7 @@
 package gr.codehub.jpademo.service;
 
 
+import gr.codehub.jpademo.dto.OrderDto;
 import gr.codehub.jpademo.dto.ProductDto;
 import gr.codehub.jpademo.dto.ResultApi;
 import gr.codehub.jpademo.exception.ProductNotFoundException;
@@ -104,5 +105,10 @@ public class ShopServiceImpl implements ShopService {
                 .stream()
                 .map(    ProductDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public OrderDto createOrder(int customerId1, int customerId2) {
+        return null;
     }
 }

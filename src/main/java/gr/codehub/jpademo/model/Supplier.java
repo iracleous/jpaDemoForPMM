@@ -15,6 +15,6 @@ import java.util.List;
 public class Supplier extends Person{
 
 
-    @OneToMany (mappedBy = "supplier")
+    @ManyToMany
     private List<Product> products;
 }

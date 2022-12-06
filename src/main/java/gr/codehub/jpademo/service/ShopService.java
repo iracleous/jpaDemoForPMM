@@ -1,5 +1,6 @@
 package gr.codehub.jpademo.service;
 
+import gr.codehub.jpademo.dto.OrderDto;
 import gr.codehub.jpademo.dto.ProductDto;
 import gr.codehub.jpademo.dto.ResultApi;
 import gr.codehub.jpademo.exception.ProductNotFoundException;
@@ -20,4 +21,6 @@ public interface ShopService {
 
     List<Double> findPrices();
     List<ProductDto> findProductByNameAndByPrice(BigDecimal maximumPrice, String productName);
+
+    OrderDto createOrder(int customerId1, int customerId2);
 }

@@ -22,4 +22,9 @@ public class Order extends BaseEntity {
     private List<OrderDetail> orderDetails;
     @ManyToOne
     private Customer customer;
+
+    @ManyToOne
+    private Customer secondCustomer;
+    @ManyToOne
+    private Employee employee;
 }

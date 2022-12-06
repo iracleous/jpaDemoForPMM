@@ -23,8 +23,8 @@ public class Product extends BaseEntity{
 
     private ProductCategory productCategory;
 
-    @ManyToOne
-    private Supplier supplier;
+    @ManyToMany (mappedBy = "products")
+    private List<Supplier> suppliers;
     @OneToMany(mappedBy = "product")
     private List<OrderDetail> orderDetails;
 }
