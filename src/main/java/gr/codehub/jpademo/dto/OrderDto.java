@@ -2,11 +2,14 @@ package gr.codehub.jpademo.dto;
 
 import gr.codehub.jpademo.model.Order;
 import gr.codehub.jpademo.model.Product;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-
+@NoArgsConstructor
+@Data
 public class OrderDto {
-    private int id;
+    private long id;
     private LocalDateTime date;
 
     public OrderDto(Order order){

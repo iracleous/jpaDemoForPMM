@@ -1,6 +1,7 @@
 package gr.codehub.jpademo.controller;
 
 
+import gr.codehub.jpademo.dto.OrderDto;
 import gr.codehub.jpademo.dto.ProductDto;
 import gr.codehub.jpademo.dto.ResultApi;
 import gr.codehub.jpademo.exception.CustomerNotFoundException;
@@ -20,13 +21,19 @@ import java.util.List;
 public class ShopController {
     private ShopService shopService;
 
+    @GetMapping("/")
+    public String home(){
+        return "PMM Rest API";
+    }
+
+
     @GetMapping("productAsResult/{id}")
-    public ResultApi<ProductDto> getCustomerAsResult(@PathVariable int id)    {
+    public ResultApi<ProductDto> getCustomerAsResult(@PathVariable long id)    {
         return   shopService.findProductAsResult(id);
     }
 
     @GetMapping("product/{id}")
-    public ProductDto getCustomer(@PathVariable int id)  throws ProductNotFoundException {
+    public ProductDto getCustomer(@PathVariable long id)  throws ProductNotFoundException {
         return shopService.findProduct(id);
     }
     @GetMapping("product")
@@ -47,9 +54,15 @@ public class ShopController {
     }
 
     @GetMapping("productByPrice")
-    public List<ProductDto> productsByPrice(@RequestParam (name="price", required = false) BigDecimal price, @RequestParam(name="name") String name){
+    public List<ProductDto> productsByPrice(@RequestParam (name="price", required = false) BigDecimal price,
+                                            @RequestParam(name="name") String name){
         return shopService.findProductByNameAndByPrice(price, name);
     }
 
 
+    @PostMapping("/order/customer1/{customerId1}/customer2/{customerId2}")
+     public OrderDto createOrder(@PathVariable(name="customerId1") long customerId1,  @PathVariable(name="customerId2") long customerId2)
+    throws CustomerNotFoundException    {
+        return shopService.createOrder(customerId1, customerId2);
+    }
 }

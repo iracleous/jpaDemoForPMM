@@ -1,5 +1,6 @@
 package gr.codehub.jpademo.model;
 
+import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.*;
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @EqualsAndHashCode
 @NoArgsConstructor
-public class Person extends BaseEntity{
+public abstract class Person extends BaseEntity{
 
     private String name;
     @Column(unique = true)

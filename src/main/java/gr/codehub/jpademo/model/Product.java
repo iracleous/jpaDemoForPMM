@@ -20,7 +20,6 @@ public class Product extends BaseEntity{
     private String name;
     private BigDecimal price;
     private LocalDate fistLaunchDate;
-
     private ProductCategory productCategory;
 
     @ManyToMany (mappedBy = "products")

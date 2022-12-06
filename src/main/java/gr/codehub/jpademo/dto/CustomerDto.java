@@ -1,10 +1,13 @@
 package gr.codehub.jpademo.dto;
 
 import gr.codehub.jpademo.model.Customer;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 
+@NoArgsConstructor
 public class CustomerDto {
-    private int id;
+    private long id;
     private String name;
     private String emailAddress;
     private int birthYear;
@@ -27,7 +30,5 @@ public class CustomerDto {
         customer.setRegistrationDate(registrationDate);
         return customer;
     }
-
-
 
 }

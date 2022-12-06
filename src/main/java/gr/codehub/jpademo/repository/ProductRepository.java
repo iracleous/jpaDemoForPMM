@@ -12,10 +12,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
+   List<Product> findByPriceLessThan(BigDecimal limit);
     Optional<Product> findFirstByName(String name);
-    List<Product> findAllByName(Pageable page, String name);
+      List<Product> findAllByName(Pageable page, String name);
 
     @Query("select distinct p.price from Product p")
     List<Double> findPrices();

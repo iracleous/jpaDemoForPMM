@@ -11,9 +11,8 @@ import lombok.*;
 @MappedSuperclass
 @EqualsAndHashCode
 @NoArgsConstructor
-
-public class BaseEntity {
+public abstract class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 }

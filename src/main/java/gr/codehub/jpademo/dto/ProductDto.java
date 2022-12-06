@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @EqualsAndHashCode
 @NoArgsConstructor
 public class ProductDto {
-    private int id;
+    private long id;
     private String name;
     private BigDecimal price;
     private LocalDate fistLaunchDate;

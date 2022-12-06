@@ -3,6 +3,7 @@ package gr.codehub.jpademo.service;
 import gr.codehub.jpademo.dto.OrderDto;
 import gr.codehub.jpademo.dto.ProductDto;
 import gr.codehub.jpademo.dto.ResultApi;
+import gr.codehub.jpademo.exception.CustomerNotFoundException;
 import gr.codehub.jpademo.exception.ProductNotFoundException;
 import gr.codehub.jpademo.model.Product;
 
@@ -11,16 +12,16 @@ import java.util.List;
 
 public interface ShopService {
 
-    ResultApi<ProductDto> findProductAsResult(int productId);
+    ResultApi<ProductDto> findProductAsResult(long productId);
 
     ProductDto createProduct(ProductDto product);
-    ProductDto findProduct(int productId) throws ProductNotFoundException;
+    ProductDto findProduct(long productId) throws ProductNotFoundException;
     List<ProductDto> findProducts(Integer pageCount, Integer pageSize);
-    ProductDto updateProduct(int productId, ProductDto product);
-    boolean deleteProduct(int productId);
+    ProductDto updateProduct(long productId, ProductDto product);
+    boolean deleteProduct(long productId);
 
     List<Double> findPrices();
     List<ProductDto> findProductByNameAndByPrice(BigDecimal maximumPrice, String productName);
 
-    OrderDto createOrder(int customerId1, int customerId2);
+    OrderDto createOrder(long customerId1, long customerId2) throws CustomerNotFoundException;
 }

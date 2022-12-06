@@ -13,8 +13,8 @@ import java.util.List;
 @Entity
 @EqualsAndHashCode
 @NoArgsConstructor
-public class Customer extends Person {
 
+public class Customer extends Person {
 
     @OneToMany(mappedBy = "customer")
     private List<Order> orders;
